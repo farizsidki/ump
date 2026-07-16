@@ -125,6 +125,14 @@ section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
   top:8px !important;
   left:8px !important;
   z-index:99999 !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+[data-testid="stSidebarCollapsedControl"]>*{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
 }
 [data-testid="stSidebarCollapsedControl"] button{
   background:#dc2626 !important;
