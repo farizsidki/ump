@@ -1,0 +1,98 @@
+#MainMenu,footer,header{visibility:hidden;}
+.block-container{padding-top:1rem;padding-bottom:1rem;}
+.stApp,[data-testid="stAppViewContainer"]{background-color:var(--bg) !important;}
+.main .block-container{background-color:var(--bg) !important;}
+
+section[data-testid="stSidebar"]{
+  background:var(--sb) !important;overflow-x:hidden !important;overflow-y:auto !important;
+  scrollbar-width:none !important;
+}
+section[data-testid="stSidebar"]::-webkit-scrollbar{display:none !important;}
+
+section[data-testid="stSidebar"] [data-testid="stVerticalBlock"]{gap:0.8rem !important;}
+section[data-testid="stSidebar"] hr{margin:0.5rem 0 !important;border-color:var(--bdr) !important;}
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p{
+  margin:0 !important;font-size:11px !important;color:var(--sub) !important;
+}
+section[data-testid="stSidebar"] .stSlider{padding-top:0.25rem !important;padding-bottom:0.15rem !important;}
+section[data-testid="stSidebar"] .stCheckbox{margin-bottom:0.1rem !important;}
+section[data-testid="stSidebar"] .stButton{margin-bottom:0.2rem !important;}
+section[data-testid="stSidebar"] div,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] label{color:var(--sb-label) !important;}
+section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+section[data-testid="stSidebar"] [data-testid="stCaption"] span{color:var(--sub) !important;}
+
+section[data-testid="stSidebar"] .stButton button{
+  height:40px !important;width:100% !important;
+  background:var(--btn-bg) !important;
+  border:1px solid var(--btn-bdr) !important;
+  border-radius:8px !important;font-weight:600 !important;font-size:13px !important;
+  display:flex !important;align-items:center !important;justify-content:center !important;
+  padding:0 !important;box-sizing:border-box !important;overflow:hidden !important;
+  color:var(--btn-col) !important;-webkit-text-fill-color:var(--btn-col) !important;
+}
+section[data-testid="stSidebar"] .stButton button *{
+  color:var(--btn-col) !important;-webkit-text-fill-color:var(--btn-col) !important;
+  background:transparent !important;border:none !important;box-shadow:none !important;
+  padding:0 !important;margin:0 !important;
+}
+section[data-testid="stSidebar"] .stButton button:hover{
+  background:#dc2626 !important;border-color:#dc2626 !important;
+}
+section[data-testid="stSidebar"] .stButton button:hover,
+section[data-testid="stSidebar"] .stButton button:hover *{
+  color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"]{
+  background:var(--btn-bg) !important;border:1px solid var(--btn-bdr) !important;
+  border-radius:8px !important;height:40px !important;overflow:hidden !important;
+}
+section[data-testid="stSidebar"] [data-testid="stNumberInputField"]{
+  background:var(--btn-bg) !important;
+  color:var(--btn-col) !important;-webkit-text-fill-color:var(--btn-col) !important;
+  border:none !important;height:38px !important;
+}
+section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
+  background:var(--btn-bg) !important;color:var(--btn-col) !important;border:none !important;
+}
+
+.ump-header,.ump-header *{color:white !important;}
+.chart-box{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:16px;}
+.chart-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.chart-sub{font-size:11px;color:var(--sub);margin-bottom:12px;}
+
+[data-testid="stCheckbox"] p,[data-testid="stCheckbox"] span:not([data-baseweb]){color:var(--sb-label) !important;}
+
+[data-testid="stMultiSelect"] [data-baseweb="select"]>div{
+  background:var(--btn-bg) !important;border-color:var(--btn-bdr) !important;
+}
+[data-testid="stMultiSelect"] [data-baseweb="select"] input{
+  color:var(--btn-col) !important;-webkit-text-fill-color:var(--btn-col) !important;
+}
+[data-testid="stMultiSelect"] [data-baseweb="tag"]{background:#dc2626 !important;border-color:#dc2626 !important;}
+[data-testid="stMultiSelect"] [data-baseweb="tag"] span,
+[data-testid="stMultiSelect"] [data-baseweb="tag"] [role="button"]{color:#ffffff !important;}
+[data-testid="stMultiSelect"] [data-baseweb="select"] svg{
+  fill:var(--sub) !important;color:var(--sub) !important;stroke:var(--sub) !important;
+}
+[data-baseweb="popover"] [data-baseweb="menu"],[data-baseweb="popover"] ul{
+  background:var(--btn-bg) !important;border-color:var(--btn-bdr) !important;
+}
+[data-baseweb="popover"] li,[data-baseweb="popover"] [role="option"]{
+  background:var(--btn-bg) !important;color:var(--btn-col) !important;
+}
+[data-baseweb="popover"] li:hover,[data-baseweb="popover"] [aria-selected="true"]{
+  background:var(--cg) !important;
+}
+
+.kpi-card{cursor:default;position:relative;}
+.kpi-tip{
+  display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);
+  background:#1f2937;color:#f9fafb;font-size:11px;padding:5px 9px;border-radius:6px;
+  white-space:nowrap;z-index:9999;pointer-events:none;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.kpi-card:hover .kpi-tip{display:block;}
