@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import plotly.graph_objects as go
 from pathlib import Path
@@ -238,6 +239,39 @@ with st.sidebar:
 # ── FILTERED DATA ─────────────────────────────────────────────────────
 f_prov = prov_df[prov_df["PROVINSI"].isin(selected_prov) & prov_df["TAHUN"].isin(filt_years)]
 f_nat  = nat_df[nat_df["TAHUN"].isin(filt_years)]
+
+# ── FIXED SIDEBAR TOGGLE ─────────────────────────────────────────────
+components.html("""
+<style>
+  #sb-btn{
+    position:fixed;top:10px;left:10px;z-index:99999;
+    background:#dc2626;color:white;border:none;border-radius:8px;
+    width:36px;height:36px;font-size:15px;font-weight:700;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 6px rgba(0,0,0,.3);
+  }
+  #sb-btn:hover{background:#b91c1c;}
+</style>
+<button id="sb-btn">&#9664;</button>
+<script>
+  var btn = document.getElementById('sb-btn');
+  function getSidebarBtn(){
+    return window.parent.document.querySelector('[data-testid="stSidebarCollapseButton"] button') ||
+           window.parent.document.querySelector('[data-testid="stSidebarCollapsedControl"] button');
+  }
+  function updateArrow(){
+    var sb = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    var w = sb ? parseInt(getComputedStyle(sb).width) : 999;
+    btn.innerHTML = w < 50 ? '&#9654;' : '&#9664;';
+  }
+  btn.onclick = function(){
+    var t = getSidebarBtn();
+    if(t){ t.click(); setTimeout(updateArrow, 300); }
+  };
+  updateArrow();
+  setInterval(updateArrow, 500);
+</script>
+""", height=0, scrolling=False)
 
 # ── HEADER ────────────────────────────────────────────────────────────
 _logo = (f'<img src="data:image/png;base64,{_fav_b64}" style="height:48px;width:48px;object-fit:contain;border-radius:8px;" />'
