@@ -106,23 +106,20 @@ section[data-testid="stSidebar"]{
   overflow:hidden !important;
 }
 
-/* pin first button in sidebar (toggle ◀/▶) to fixed so always visible */
+/* toggle ◀/▶ button — fixed so visible even when sidebar width=0 */
 section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button{
   position:fixed !important;
   top:10px !important;
-  left:10px !important;
-  width:36px !important;
-  height:36px !important;
-  min-width:36px !important;
+  left:var(--sb-btn-left) !important;
+  width:36px !important;height:36px !important;min-width:36px !important;
   background:#dc2626 !important;
-  color:white !important;
-  -webkit-text-fill-color:white !important;
-  border:none !important;
-  border-radius:8px !important;
-  font-size:14px !important;
-  font-weight:700 !important;
-  z-index:99999 !important;
-  padding:0 !important;
+  color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;
+  border:none !important;border-radius:8px !important;
+  font-size:14px !important;font-weight:700 !important;
+  z-index:99999 !important;padding:0 !important;
+}
+section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button *{
+  color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;
 }
 section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button:hover{
   background:#b91c1c !important;

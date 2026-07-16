@@ -50,7 +50,7 @@ st.markdown(f"""
 <style>
 :root{{
   --bg:{T['bg']};--card:{T['card']};--text:{T['text']};--sub:{T['sub']};
-  --bdr:{T['bdr']};--cg:{T['cg']};--sb:{T['sb']};--sb-w:{'0px' if not SB_OPEN else '288px'};
+  --bdr:{T['bdr']};--cg:{T['cg']};--sb:{T['sb']};--sb-w:{'0px' if not SB_OPEN else '288px'};--sb-btn-left:{'10px' if not SB_OPEN else '126px'};
   --btn-col:{_btn_col};--btn-bg:{_btn_bg};--btn-bdr:{_btn_bdr};
   --sb-label:{_sb_label};
 }}
