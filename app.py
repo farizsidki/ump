@@ -198,7 +198,6 @@ def build_growth(growth_rows, chart_h, is_dark, dtick):
 
 # ── SIDEBAR ───────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("---")
     if st.button("🌙  Dark Mode" if IS_DARK else "☀️  Light Mode", key="theme_btn"):
         st.session_state.theme = "light" if IS_DARK else "dark"; st.rerun()
     st.markdown("---")
