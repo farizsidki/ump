@@ -58,8 +58,10 @@ st.markdown(f"""
 <script>
 (function(){{
   function fixToggle(){{
-    var el=document.querySelector('[data-testid="stSidebarCollapsedControl"]');
-    if(el){{el.style.setProperty('opacity','1','important');el.style.setProperty('pointer-events','auto','important');}}
+    ['[data-testid="stSidebarCollapsedControl"]','[data-testid="stSidebarCollapseButton"]'].forEach(function(sel){{
+      var el=document.querySelector(sel);
+      if(el){{el.style.setProperty('opacity','1','important');el.style.setProperty('pointer-events','auto','important');}}
+    }});
   }}
   fixToggle();
   new MutationObserver(fixToggle).observe(document.body,{{attributes:true,subtree:true,attributeFilter:['style']}});
