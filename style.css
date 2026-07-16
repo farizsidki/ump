@@ -97,47 +97,37 @@ section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
 }
 .kpi-card:hover .kpi-tip{display:block;}
 
-/* native collapsed sidebar control — always visible */
-[data-testid="stSidebarCollapsedControl"]{
-  display:flex !important;
-  position:fixed !important;
-  top:0.75rem !important;
-  left:0.75rem !important;
-  z-index:9999 !important;
-}
-[data-testid="stSidebarCollapsedControl"] button{
-  background:#dc2626 !important;
-  color:white !important;
-  border:none !important;
-  border-radius:8px !important;
-  width:36px !important;
-  height:36px !important;
-}
-[data-testid="stSidebarCollapsedControl"] button svg{
-  fill:white !important;stroke:white !important;
-}
 
-/* force collapsed control always visible, never hidden */
-[data-testid="stSidebarCollapsedControl"],
-[data-testid="stSidebarCollapsedControl"] *{
-  visibility:visible !important;
-  opacity:1 !important;
-  pointer-events:auto !important;
-}
-
-/* sidebar width controlled by --sb-w var */
+/* sidebar width via CSS var — 0px when closed */
 section[data-testid="stSidebar"]{
   width:var(--sb-w) !important;
   min-width:var(--sb-w) !important;
   max-width:var(--sb-w) !important;
-  transition:width 0.2s ease !important;
   overflow:hidden !important;
 }
-/* hide native collapse arrow — we use our own button */
+
+/* pin first button in sidebar (toggle ◀/▶) to fixed so always visible */
+section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button{
+  position:fixed !important;
+  top:10px !important;
+  left:10px !important;
+  width:36px !important;
+  height:36px !important;
+  min-width:36px !important;
+  background:#dc2626 !important;
+  color:white !important;
+  -webkit-text-fill-color:white !important;
+  border:none !important;
+  border-radius:8px !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  z-index:99999 !important;
+  padding:0 !important;
+}
+section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button:hover{
+  background:#b91c1c !important;
+}
+
+/* hide native collapse buttons */
 [data-testid="stSidebarCollapsedControl"],
 [data-testid="stSidebarCollapseButton"]{display:none !important;}
-
-/* hide the hidden toggle trigger button from sidebar */
-section[data-testid="stSidebar"] button[data-testid="baseButton-secondary"]:first-of-type{
-  display:none !important;
-}

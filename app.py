@@ -198,20 +198,9 @@ def build_growth(growth_rows, chart_h, is_dark, dtick):
     return fig
 
 # ── SIDEBAR ───────────────────────────────────────────────────────────
-# hidden toggle button — triggered by fixed HTML button via JS
-if st.sidebar.button("__toggle__", key="sb_toggle"):
-    st.session_state.sb_open = not SB_OPEN; st.rerun()
-
-# fixed position HTML toggle button
-st.markdown(f"""<div style="position:fixed;top:10px;left:10px;z-index:99999;">
-  <button onclick="Array.from(window.parent.document.querySelectorAll('button')).find(b=>b.innerText==='__toggle__')?.click()"
-    style="background:#dc2626;color:white;border:none;border-radius:8px;
-           width:36px;height:36px;font-size:15px;cursor:pointer;line-height:1;">
-    {"◀" if SB_OPEN else "▶"}
-  </button>
-</div>""", unsafe_allow_html=True)
-
 with st.sidebar:
+    if st.button("◀" if SB_OPEN else "▶", key="sb_toggle"):
+        st.session_state.sb_open = not SB_OPEN; st.rerun()
     if st.button("🌙  Dark Mode" if IS_DARK else "☀️  Light Mode", key="theme_btn"):
         st.session_state.theme = "light" if IS_DARK else "dark"; st.rerun()
     st.markdown("---")
