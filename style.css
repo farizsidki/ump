@@ -4,11 +4,10 @@
 .main .block-container{background-color:var(--bg) !important;}
 
 section[data-testid="stSidebar"]{
-  background:var(--sb) !important;overflow-x:hidden !important;overflow-y:auto !important;
+  background:var(--sb) !important;
   scrollbar-width:none !important;
 }
 section[data-testid="stSidebar"]::-webkit-scrollbar{display:none !important;}
-
 section[data-testid="stSidebar"] [data-testid="stVerticalBlock"]{gap:0.8rem !important;}
 section[data-testid="stSidebar"] hr{margin:0.5rem 0 !important;border-color:var(--bdr) !important;}
 section[data-testid="stSidebar"] p,
@@ -30,21 +29,16 @@ section[data-testid="stSidebar"] .stButton button{
   border:1px solid var(--btn-bdr) !important;
   border-radius:8px !important;font-weight:600 !important;font-size:13px !important;
   display:flex !important;align-items:center !important;justify-content:center !important;
-  padding:0 !important;box-sizing:border-box !important;overflow:hidden !important;
+  padding:0 !important;box-sizing:border-box !important;
   color:var(--btn-col) !important;-webkit-text-fill-color:var(--btn-col) !important;
 }
 section[data-testid="stSidebar"] .stButton button *{
   color:var(--btn-col) !important;-webkit-text-fill-color:var(--btn-col) !important;
-  background:transparent !important;border:none !important;box-shadow:none !important;
-  padding:0 !important;margin:0 !important;
+  background:transparent !important;border:none !important;padding:0 !important;margin:0 !important;
 }
-section[data-testid="stSidebar"] .stButton button:hover{
-  background:#dc2626 !important;border-color:#dc2626 !important;
-}
+section[data-testid="stSidebar"] .stButton button:hover{background:#dc2626 !important;border-color:#dc2626 !important;}
 section[data-testid="stSidebar"] .stButton button:hover,
-section[data-testid="stSidebar"] .stButton button:hover *{
-  color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;
-}
+section[data-testid="stSidebar"] .stButton button:hover *{color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;}
 
 section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"]{
   background:var(--btn-bg) !important;border:1px solid var(--btn-bdr) !important;
@@ -66,64 +60,20 @@ section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
 
 [data-testid="stCheckbox"] p,[data-testid="stCheckbox"] span:not([data-baseweb]){color:var(--sb-label) !important;}
 
-[data-testid="stMultiSelect"] [data-baseweb="select"]>div{
-  background:var(--btn-bg) !important;border-color:var(--btn-bdr) !important;
-}
-[data-testid="stMultiSelect"] [data-baseweb="select"] input{
-  color:var(--btn-col) !important;-webkit-text-fill-color:var(--btn-col) !important;
-}
+[data-testid="stMultiSelect"] [data-baseweb="select"]>div{background:var(--btn-bg) !important;border-color:var(--btn-bdr) !important;}
+[data-testid="stMultiSelect"] [data-baseweb="select"] input{color:var(--btn-col) !important;-webkit-text-fill-color:var(--btn-col) !important;}
 [data-testid="stMultiSelect"] [data-baseweb="tag"]{background:#dc2626 !important;border-color:#dc2626 !important;}
 [data-testid="stMultiSelect"] [data-baseweb="tag"] span,
 [data-testid="stMultiSelect"] [data-baseweb="tag"] [role="button"]{color:#ffffff !important;}
-[data-testid="stMultiSelect"] [data-baseweb="select"] svg{
-  fill:var(--sub) !important;color:var(--sub) !important;stroke:var(--sub) !important;
-}
-[data-baseweb="popover"] [data-baseweb="menu"],[data-baseweb="popover"] ul{
-  background:var(--btn-bg) !important;border-color:var(--btn-bdr) !important;
-}
-[data-baseweb="popover"] li,[data-baseweb="popover"] [role="option"]{
-  background:var(--btn-bg) !important;color:var(--btn-col) !important;
-}
-[data-baseweb="popover"] li:hover,[data-baseweb="popover"] [aria-selected="true"]{
-  background:var(--cg) !important;
-}
+[data-testid="stMultiSelect"] [data-baseweb="select"] svg{fill:var(--sub) !important;color:var(--sub) !important;stroke:var(--sub) !important;}
+[data-baseweb="popover"] [data-baseweb="menu"],[data-baseweb="popover"] ul{background:var(--btn-bg) !important;border-color:var(--btn-bdr) !important;}
+[data-baseweb="popover"] li,[data-baseweb="popover"] [role="option"]{background:var(--btn-bg) !important;color:var(--btn-col) !important;}
+[data-baseweb="popover"] li:hover,[data-baseweb="popover"] [aria-selected="true"]{background:var(--cg) !important;}
 
 .kpi-card{cursor:default;position:relative;}
 .kpi-tip{
   display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);
   background:#1f2937;color:#f9fafb;font-size:11px;padding:5px 9px;border-radius:6px;
-  white-space:nowrap;z-index:9999;pointer-events:none;
-  box-shadow:0 2px 8px rgba(0,0,0,.25);
+  white-space:nowrap;z-index:9999;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,.25);
 }
 .kpi-card:hover .kpi-tip{display:block;}
-
-
-/* sidebar width via CSS var — 0px when closed */
-section[data-testid="stSidebar"]{
-  width:var(--sb-w) !important;
-  min-width:var(--sb-w) !important;
-  max-width:var(--sb-w) !important;
-  overflow:hidden !important;
-}
-
-/* toggle ◀/▶ button — always full width, always red, always white text */
-section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button{
-  background:#dc2626 !important;
-  color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;
-  border:none !important;border-radius:8px !important;
-  height:40px !important;width:100% !important;
-  font-size:14px !important;font-weight:700 !important;
-  padding:0 !important;
-}
-section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button *{
-  color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;
-}
-section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button:hover{
-  background:#b91c1c !important;
-}
-/* sidebar overflow visible so button stays accessible when width=0 */
-section[data-testid="stSidebar"]{overflow:visible !important;}
-
-/* hide native collapse buttons */
-[data-testid="stSidebarCollapsedControl"],
-[data-testid="stSidebarCollapseButton"]{display:none !important;}

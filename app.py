@@ -12,11 +12,10 @@ st.set_page_config(
 )
 
 # ── SESSION STATE ─────────────────────────────────────────────────────
-for k, v in {"theme": "light", "sb_open": True, "selected_prov": ["DKI JAKARTA","JAWA BARAT","JAWA TENGAH","JAWA TIMUR","BALI"], "pilih_semua": True}.items():
+for k, v in {"theme": "light", "selected_prov": ["DKI JAKARTA","JAWA BARAT","JAWA TENGAH","JAWA TIMUR","BALI"], "pilih_semua": True}.items():
     st.session_state.setdefault(k, v)
 
 IS_DARK = st.session_state.theme == "dark"
-SB_OPEN = st.session_state.sb_open
 
 T = dict(
     bg  = "#09090b" if IS_DARK else "#f9fafb",
@@ -50,7 +49,7 @@ st.markdown(f"""
 <style>
 :root{{
   --bg:{T['bg']};--card:{T['card']};--text:{T['text']};--sub:{T['sub']};
-  --bdr:{T['bdr']};--cg:{T['cg']};--sb:{T['sb']};--sb-w:{'0px' if not SB_OPEN else '288px'};--sb-btn-left:{'10px' if not SB_OPEN else '126px'};
+  --bdr:{T['bdr']};--cg:{T['cg']};--sb:{T['sb']};
   --btn-col:{_btn_col};--btn-bg:{_btn_bg};--btn-bdr:{_btn_bdr};
   --sb-label:{_sb_label};
 }}
@@ -198,8 +197,6 @@ def build_growth(growth_rows, chart_h, is_dark, dtick):
 
 # ── SIDEBAR ───────────────────────────────────────────────────────────
 with st.sidebar:
-    if st.button("◀" if SB_OPEN else "▶", key="sb_toggle"):
-        st.session_state.sb_open = not SB_OPEN; st.rerun()
     if st.button("🌙  Dark Mode" if IS_DARK else "☀️  Light Mode", key="theme_btn"):
         st.session_state.theme = "light" if IS_DARK else "dark"; st.rerun()
     st.markdown("---")
