@@ -120,19 +120,22 @@ section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
   pointer-events:auto !important;
   transition:none !important;
 }
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapsedControl"] *:not(button):not(svg):not(path){
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  outline:none !important;
+  padding:0 !important;
+}
 [data-testid="stSidebarCollapsedControl"]{
   position:fixed !important;
   top:8px !important;
   left:8px !important;
   z-index:99999 !important;
-  background:transparent !important;
-  border:none !important;
-  box-shadow:none !important;
-}
-[data-testid="stSidebarCollapsedControl"]>*{
-  background:transparent !important;
-  border:none !important;
-  box-shadow:none !important;
+  width:36px !important;
+  height:36px !important;
+  margin:0 !important;
 }
 [data-testid="stSidebarCollapsedControl"] button{
   background:#dc2626 !important;
