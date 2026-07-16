@@ -55,6 +55,16 @@ st.markdown(f"""
 }}
 {_css_static}
 </style>
+<script>
+(function(){{
+  function fixToggle(){{
+    var el=document.querySelector('[data-testid="stSidebarCollapsedControl"]');
+    if(el){{el.style.setProperty('opacity','1','important');el.style.setProperty('pointer-events','auto','important');}}
+  }}
+  fixToggle();
+  new MutationObserver(fixToggle).observe(document.body,{{attributes:true,subtree:true,attributeFilter:['style']}});
+}})();
+</script>
 """, unsafe_allow_html=True)
 # ── DATA ──────────────────────────────────────────────────────────────
 @st.cache_data
