@@ -154,3 +154,5 @@ section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
 [data-testid="stSidebarCollapsedControl"] button:hover{
   background:#b91c1c !important;
 }
+/* hide duplicate SVG outside button in collapsed control */
+[data-testid="stSidebarCollapsedControl"]>svg{display:none !important;}
