@@ -109,14 +109,18 @@ section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
   fill:#ffffff !important;
 }
 
-/* style the > button when sidebar is collapsed — always visible, no fade */
+/* Force sidebar toggle always visible — animation overrides Streamlit JS opacity transition */
+@keyframes forceVisible{0%,100%{opacity:1;pointer-events:auto;}}
 [data-testid="stSidebarCollapsedControl"],
-[data-testid="stSidebarCollapsedControl"]:not(:hover){
+[data-testid="stSidebarCollapseButton"]{
+  animation:forceVisible 1ms forwards !important;
   display:flex !important;
   visibility:visible !important;
   opacity:1 !important;
   pointer-events:auto !important;
   transition:none !important;
+}
+[data-testid="stSidebarCollapsedControl"]{
   position:fixed !important;
   top:8px !important;
   left:8px !important;
