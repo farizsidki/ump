@@ -116,3 +116,23 @@ section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
 [data-testid="stSidebarCollapsedControl"] button svg{
   fill:white !important;stroke:white !important;
 }
+
+/* force collapsed control always visible, never hidden */
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapsedControl"] *{
+  visibility:visible !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+}
+
+/* sidebar width controlled by --sb-w var */
+section[data-testid="stSidebar"]{
+  width:var(--sb-w) !important;
+  min-width:var(--sb-w) !important;
+  max-width:var(--sb-w) !important;
+  transition:width 0.2s ease !important;
+  overflow:hidden !important;
+}
+/* hide native collapse arrow — we use our own button */
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapseButton"]{display:none !important;}

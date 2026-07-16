@@ -12,10 +12,11 @@ st.set_page_config(
 )
 
 # ── SESSION STATE ─────────────────────────────────────────────────────
-for k, v in {"theme": "light", "selected_prov": ["DKI JAKARTA","JAWA BARAT","JAWA TENGAH","JAWA TIMUR","BALI"], "pilih_semua": True}.items():
+for k, v in {"theme": "light", "sb_open": True, "selected_prov": ["DKI JAKARTA","JAWA BARAT","JAWA TENGAH","JAWA TIMUR","BALI"], "pilih_semua": True}.items():
     st.session_state.setdefault(k, v)
 
 IS_DARK = st.session_state.theme == "dark"
+SB_OPEN = st.session_state.sb_open
 
 T = dict(
     bg  = "#09090b" if IS_DARK else "#f9fafb",
@@ -49,7 +50,7 @@ st.markdown(f"""
 <style>
 :root{{
   --bg:{T['bg']};--card:{T['card']};--text:{T['text']};--sub:{T['sub']};
-  --bdr:{T['bdr']};--cg:{T['cg']};--sb:{T['sb']};
+  --bdr:{T['bdr']};--cg:{T['cg']};--sb:{T['sb']};--sb-w:{'0px' if not SB_OPEN else '288px'};
   --btn-col:{_btn_col};--btn-bg:{_btn_bg};--btn-bdr:{_btn_bdr};
   --sb-label:{_sb_label};
 }}
@@ -239,6 +240,12 @@ with st.sidebar:
 # ── FILTERED DATA ─────────────────────────────────────────────────────
 f_prov = prov_df[prov_df["PROVINSI"].isin(selected_prov) & prov_df["TAHUN"].isin(filt_years)]
 f_nat  = nat_df[nat_df["TAHUN"].isin(filt_years)]
+
+# ── SIDEBAR TOGGLE ───────────────────────────────────────────────────
+_tc, _hc = st.columns([0.04, 0.96])
+with _tc:
+    if st.button("◀" if SB_OPEN else "▶", key="sb_toggle"):
+        st.session_state.sb_open = not SB_OPEN; st.rerun()
 
 # ── HEADER ────────────────────────────────────────────────────────────
 _logo = (f'<img src="data:image/png;base64,{_fav_b64}" style="height:48px;width:48px;object-fit:contain;border-radius:8px;" />'
