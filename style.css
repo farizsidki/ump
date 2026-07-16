@@ -106,17 +106,14 @@ section[data-testid="stSidebar"]{
   overflow:hidden !important;
 }
 
-/* toggle ◀/▶ button — fixed so visible even when sidebar width=0 */
+/* toggle ◀/▶ button — always full width, always red, always white text */
 section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button{
-  position:fixed !important;
-  top:10px !important;
-  left:var(--sb-btn-left) !important;
-  width:36px !important;height:36px !important;min-width:36px !important;
   background:#dc2626 !important;
   color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;
   border:none !important;border-radius:8px !important;
+  height:40px !important;width:100% !important;
   font-size:14px !important;font-weight:700 !important;
-  z-index:99999 !important;padding:0 !important;
+  padding:0 !important;
 }
 section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button *{
   color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;
@@ -124,6 +121,8 @@ section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-
 section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:first-child .stButton button:hover{
   background:#b91c1c !important;
 }
+/* sidebar overflow visible so button stays accessible when width=0 */
+section[data-testid="stSidebar"]{overflow:visible !important;}
 
 /* hide native collapse buttons */
 [data-testid="stSidebarCollapsedControl"],

@@ -57,7 +57,6 @@ st.markdown(f"""
 {_css_static}
 </style>
 """, unsafe_allow_html=True)
-
 # ── DATA ──────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
