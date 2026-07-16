@@ -109,11 +109,14 @@ section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
   fill:#ffffff !important;
 }
 
-/* style the > button when sidebar is collapsed — make it visible and red */
-[data-testid="stSidebarCollapsedControl"]{
+/* style the > button when sidebar is collapsed — always visible, no fade */
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapsedControl"]:not(:hover){
   display:flex !important;
   visibility:visible !important;
   opacity:1 !important;
+  pointer-events:auto !important;
+  transition:none !important;
   position:fixed !important;
   top:8px !important;
   left:8px !important;
