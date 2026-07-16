@@ -77,3 +77,62 @@ section[data-testid="stSidebar"] [data-testid="stNumberInputContainer"] button{
   white-space:nowrap;z-index:9999;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,.25);
 }
 .kpi-card:hover .kpi-tip{display:block;}
+
+/* native collapse button — full width, styled like other sidebar buttons */
+[data-testid="stSidebarCollapseButton"]{
+  width:100% !important;
+  padding:0 1rem !important;
+}
+[data-testid="stSidebarCollapseButton"] button{
+  width:100% !important;
+  height:40px !important;
+  background:var(--btn-bg) !important;
+  border:1px solid var(--btn-bdr) !important;
+  border-radius:8px !important;
+  color:var(--btn-col) !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+}
+[data-testid="stSidebarCollapseButton"] button svg{
+  fill:var(--btn-col) !important;
+}
+[data-testid="stSidebarCollapseButton"] button:hover{
+  background:#dc2626 !important;
+  border-color:#dc2626 !important;
+  color:#ffffff !important;
+}
+[data-testid="stSidebarCollapseButton"] button:hover svg{
+  fill:#ffffff !important;
+}
+
+/* style the > button when sidebar is collapsed — make it visible and red */
+[data-testid="stSidebarCollapsedControl"]{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  position:fixed !important;
+  top:8px !important;
+  left:8px !important;
+  z-index:99999 !important;
+}
+[data-testid="stSidebarCollapsedControl"] button{
+  background:#dc2626 !important;
+  border:none !important;
+  border-radius:8px !important;
+  width:36px !important;
+  height:36px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+[data-testid="stSidebarCollapsedControl"] button svg{
+  fill:#ffffff !important;
+  stroke:#ffffff !important;
+}
+[data-testid="stSidebarCollapsedControl"] button:hover{
+  background:#b91c1c !important;
+}
