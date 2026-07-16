@@ -241,6 +241,7 @@ f_prov = prov_df[prov_df["PROVINSI"].isin(selected_prov) & prov_df["TAHUN"].isin
 f_nat  = nat_df[nat_df["TAHUN"].isin(filt_years)]
 
 # ── FIXED SIDEBAR TOGGLE ─────────────────────────────────────────────
+st.markdown('<div style="margin-bottom:-60px"></div>', unsafe_allow_html=True)
 components.html("""
 <style>
   #sb-btn{
@@ -271,7 +272,7 @@ components.html("""
   updateArrow();
   setInterval(updateArrow, 500);
 </script>
-""", height=0, scrolling=False)
+""", height=52, scrolling=False)
 
 # ── HEADER ────────────────────────────────────────────────────────────
 _logo = (f'<img src="data:image/png;base64,{_fav_b64}" style="height:48px;width:48px;object-fit:contain;border-radius:8px;" />'
